@@ -1,0 +1,186 @@
+#Mubarak Al-Naimi msnaimi
+
+import difflib
+from Tkinter import *
+import tkMessageBox
+
+master = Tk()
+
+class MainMenu:
+    master.title('Champions League Search Engine')
+    def __init__(self):
+        self.photo = PhotoImage(file = "Main menu.gif")
+        #Image source=https://www.uefa.com/uefachampionsleague/index.html
+        self.background = Label(master, image=self.photo)
+        self.background.pack()
+        self.MainLabel = Label(master, text='Choose the season')
+        self.MainLabel.config(font=("Times New Roman", 20))
+        self.MainLabel.config(bg='#A0A0A0')
+        self.MainLabel.place(x=950, y=250)
+        self.StartButton = Button(master, text='Start', width=20, height=3, command=self.Start)
+        self.StartButton.place(x=990, y=500)
+        self.fileList = Listbox(master)
+        self.fileList.place(x=1000, y=300)
+        self.fileList.insert(0, '')
+        self.fileList.insert(0, 'CL17-18')
+        self.fileList.insert(0, 'CL16-17')
+        self.fileList.insert(0, 'CL15-16')
+        self.counter = list()
+
+    def Start(self):
+        filename = self.fileList.get('active')
+        if filename != '':
+            if len(self.counter) == 0:
+                self.counter.append('1')
+                SearchPage = Toplevel()
+                SearchPage.title('Search for an Answer')
+                SecondWindow = Search(filename, SearchPage, self.counter)
+                SearchPage.mainloop()
+        else:
+            tkMessageBox.showinfo('Error', 'Please select a season')
+
+class Search:
+    def __init__(self, filename, Window, counter):
+        self.counter = counter
+        self.window = Window
+        self.photo2 = PhotoImage(file = 'Search Page.gif')
+        #Image Source=https://en.as.com/en/2016/12/09/football/1481314103_008421.html
+        self.background = Label(self.window, image=self.photo2)
+        self.background.pack()
+        self.questionLabel = Label(self.window, text='Type a Question')
+        self.questionLabel.config(font=('Times New Roman', 24))
+        self.questionLabel.config(bg='#A0A0A0')
+        self.questionLabel.place(x=500, y=450)
+        self.question = Text(self.window, height=2, width=100)
+        self.question.place(x=200, y=500)
+        self.searchButton = Button(self.window, text='Search', height=2, width=20, command=self.searchQuestion)
+        self.searchButton.place(x=550, y=550)
+        self.file = filename + '.txt'
+        self.teamDictionary = self.readFile(self.file)[0]
+        self.allGames = self.readFile(self.file)[1]
+        self.fullGames = self.saveScore(self.teamDictionary, self.allGames)
+        Window.protocol('WM_DELETE_WINDOW', self.closeWindow)
+
+    def closeWindow(self):
+        self.counter.remove(self.counter[0])
+        self.window.destroy()
+        
+    def readFile(self, filename):
+        team = dict()
+        date = 0
+        game = 0
+        allGames = []
+        league = open(filename)
+        for line in league:
+            line = line.strip()
+            if line.startswith('['):
+                if "`" not in line:
+                    date = line
+                else:
+                    goals = line.split("`")
+                    for i in goals:
+                        i = i.strip()
+                        i = i.replace(',','')
+                        i = i.replace('[','')
+                        i = i.replace(']','')
+                        game.append(i)
+            else:
+                i = 0
+                start = i
+                game = []
+                while i != len(line):
+                    if line[i] == ' ':
+                        if line[i+1] != ' ' and line[i-1] == ' ':
+                            start = i+1
+                        elif line[i-1] != ' ' and line[i+1] == ' ':
+                            if start != i:
+                                game.append(line[start:i])
+                            start = i
+                        i+=1
+                    else:
+                        i+=1
+                    if i+1 == len(line):
+                        game.append(line[start:len(line)])
+                        game.append(date)
+                if len(game) > 2:
+                    allGames.append(game)
+                    if game[1] not in team:
+                        team[game[1]] = dict()
+                        team[game[1]]['Win'] = list()
+                        team[game[1]]['Draw'] = list()
+                        team[game[1]]['Loss'] = list()
+
+        return (team, allGames)
+
+    def saveScore(self, teams, games):
+        for i in games:
+            score = i[2]
+            stadium = i[4]
+            date = i[5]
+            goalsHome = []
+            goalsAway = []
+            i.pop()
+            if len(i)>6:
+                tracker = 0
+                for j in range(6,len(i)):
+                    if ';' in i[j]:
+                        i[j] = i[j].replace(';','')
+                        i[j] = i[j].replace('-','')
+                        tracker = 1
+                    if tracker == 0:
+                        goalsHome.append(i[j])
+                    else:
+                        goalsAway.append(i[j])
+                    
+            if score[0] > score[2]:
+                teams[i[1]]['Win'].append(i[1] + ' ' + i[2] + ' ' + i[3] + ' ' + stadium + ' ' + date + ' ' + str(goalsHome) + ' ' + str(goalsAway))
+                teams[i[3]]['Loss'].append(i[3] + ' ' + i[2][2] + '-' + i[2][0] + ' ' + i[1] + ' ' + stadium + ' ' + date + ' ' + str(goalsAway) + ' ' + str(goalsHome))
+            elif score[0] < score[2]:
+                teams[i[1]]['Loss'].append(i[1] + ' ' + i[2] + ' ' + i[3] + ' ' + stadium + ' ' + date + ' ' + str(goalsHome) + ' ' + str(goalsAway))
+                teams[i[3]]['Win'].append(i[3] + ' ' + i[2][2] + '-' + i[2][0] + ' ' + i[1] + ' ' + stadium + ' ' + date + ' ' + str(goalsAway) + ' ' + str(goalsHome))
+            else:
+                teams[i[1]]['Draw'].append(i[1] + ' ' + i[2] + ' ' + i[3] + ' ' + stadium + ' ' + date + ' ' + str(goalsHome) + ' ' + str(goalsAway))
+        return teams
+    def searchQuestion(self):
+        A = self.question.get('1.0', END).strip()
+        if len(A.split()) == 0:
+            tkMessageBox.showinfo('Error', 'Please enter a message')
+        else:
+            if A in self.fullGames:
+                AnswerPage = Toplevel()
+                AnswerPage.title('Answer')
+                ThirdWindow = Answer(A, AnswerPage, self.fullGames)
+                AnswerPage.mainloop()
+            else:
+                if len(difflib.get_close_matches(A, self.fullGames)) > 0:
+                    if tkMessageBox.askyesno('Suggestion','Did you mean ' + difflib.get_close_matches(A, self.fullGames)[0]):
+                        AnswerPage = Toplevel()
+                        AnswerPage.title('Answer')
+                        ThirdWindow = Answer(difflib.get_close_matches(A, self.fullGames)[0], AnswerPage, self.fullGames)
+                        AnswerPage.mainloop()
+                    else:
+                        self.window.lift()
+                else:
+                    tkMessageBox.showinfo('Error', 'Please enter a valid team')
+
+class Answer:
+    def __init__(self, answer, window, Games):
+        self.window = window
+        self.allGames = Games
+        self.answer = answer
+        self.photo3 = PhotoImage(file = 'Answer Page.gif')
+        #Image source=https://www.uefa.com/uefachampionsleague/index.html
+        self.background = Label(self.window, image=self.photo3)
+        self.background.pack()
+        self.answerBox = Listbox(self.window, height=30, width=160)
+        self.answerBox.place(x=15, y=50)
+        self.checkAnswer()
+    def checkAnswer(self):
+        keywords = {}
+        if self.answer in self.allGames:
+            for i in self.allGames[self.answer]:
+                for j in self.allGames[self.answer][i]:
+                    self.answerBox.insert(END, j)
+
+Main = MainMenu()
+mainloop()
