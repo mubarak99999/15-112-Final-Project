@@ -13,7 +13,7 @@ class MainMenu:
         #Image source=https://www.uefa.com/uefachampionsleague/index.html
         self.background = Label(master, image=self.photo)
         self.background.pack()
-        self.MainLabel = Label(master, text='Choose the season')
+        self.MainLabel = Label(master, text='Choose a season')
         self.MainLabel.config(font=("Times New Roman", 20))
         self.MainLabel.config(bg='#A0A0A0')
         self.MainLabel.place(x=950, y=250)
@@ -53,12 +53,14 @@ class Search:
         self.questionLabel.place(x=500, y=450)
         self.question = Text(self.window, height=2, width=100)
         self.question.place(x=200, y=500)
-        self.searchButton = Button(self.window, text='Search', height=2, width=20, command=self.searchQuestion)
+        self.searchButton = Button(self.window, text='Search', height=2, width=20, command=self.startButton)
         self.searchButton.place(x=550, y=550)
         self.file = filename + '.txt'
         self.teamDictionary = self.readFile(self.file)[0]
         self.allGames = self.readFile(self.file)[1]
         self.fullGames = self.saveScore(self.teamDictionary, self.allGames)
+        self.keywords = {"wins wons beat": self.gamesWon, "losts lose loss": self.gamesLost, "drew draws ties": self.gamesDrew}
+
         Window.protocol('WM_DELETE_WINDOW', self.closeWindow)
 
     def closeWindow(self):
@@ -131,56 +133,278 @@ class Search:
                         goalsHome.append(i[j])
                     else:
                         goalsAway.append(i[j])
-                    
             if score[0] > score[2]:
-                teams[i[1]]['Win'].append(i[1] + ' ' + i[2] + ' ' + i[3] + ' ' + stadium + ' ' + date + ' ' + str(goalsHome) + ' ' + str(goalsAway))
-                teams[i[3]]['Loss'].append(i[3] + ' ' + i[2][2] + '-' + i[2][0] + ' ' + i[1] + ' ' + stadium + ' ' + date + ' ' + str(goalsAway) + ' ' + str(goalsHome))
+                teams[i[1]]['Win'].append([i[1], i[2], i[3], stadium, date, str(goalsHome), str(goalsAway)])
+                teams[i[3]]['Loss'].append([i[3], (i[2][2::-1]), i[1], stadium, date, str(goalsAway), str(goalsHome)])
             elif score[0] < score[2]:
-                teams[i[1]]['Loss'].append(i[1] + ' ' + i[2] + ' ' + i[3] + ' ' + stadium + ' ' + date + ' ' + str(goalsHome) + ' ' + str(goalsAway))
-                teams[i[3]]['Win'].append(i[3] + ' ' + i[2][2] + '-' + i[2][0] + ' ' + i[1] + ' ' + stadium + ' ' + date + ' ' + str(goalsAway) + ' ' + str(goalsHome))
+                teams[i[1]]['Loss'].append([i[1], i[2], i[3], stadium, date, str(goalsHome), str(goalsAway)])
+                teams[i[3]]['Win'].append([i[3], (i[2][2::-1]), i[1], stadium, date, str(goalsAway), str(goalsHome)])
             else:
-                teams[i[1]]['Draw'].append(i[1] + ' ' + i[2] + ' ' + i[3] + ' ' + stadium + ' ' + date + ' ' + str(goalsHome) + ' ' + str(goalsAway))
+                teams[i[1]]['Draw'].append([i[1], i[2], i[3], stadium, date, str(goalsHome), str(goalsAway)])
         return teams
-    def searchQuestion(self):
-        A = self.question.get('1.0', END).strip()
-        if len(A.split()) == 0:
-            tkMessageBox.showinfo('Error', 'Please enter a message')
+
+    def startButton(self):
+        Question = self.question.get('1.0', END).strip()
+        self.getAnswer(Question)
+
+    def getAnswer(self, Question):
+        counter = 0
+        if len(Question.split()) == 0:
+            tkMessageBox.showinfo('Error', 'Please enter a Question')
+            self.window.lift()
         else:
-            if A in self.fullGames:
+            A = []
+            Question = Question.split()
+            for i in Question:
+                for j in self.keywords:
+                    if i.lower() in j:
+                        if counter == 0:
+                            A = self.keywords[j](Question)
+                            counter = 1
+            if A == []:
+                if len(Question) == 1:
+                    Question = Question[0]
+                    if Question in self.fullGames:
+                        for i in self.fullGames[Question]['Win']:
+                            A.append(i)
+                        for i in self.fullGames[Question]['Loss']:
+                            A.append(i)
+                        for i in self.fullGames[Question]['Draw']:
+                            A.append(i)
+                    else:
+                        if len(difflib.get_close_matches(Question, self.fullGames, cutoff=0.8)) > 0:
+                            if tkMessageBox.askyesno('Suggestion', 'Did you mean ' + difflib.get_close_matches(Question, self.fullGames, cutoff=0.75)[0]):
+                                #self.window.lift()
+                                Question = difflib.get_close_matches(Question, self.fullGames, cutoff=0.8)[0]
+                                for i in self.fullGames[Question]['Win']:
+                                    A.append(i)
+                                for i in self.fullGames[Question]['Loss']:
+                                    A.append(i)
+                                for i in self.fullGames[Question]['Draw']:
+                                    A.append(i)
+                            else:
+                                self.window.lift()
+                elif len(Question) == 2:
+                    if " ".join(Question) in self.fullGames:
+                        Question = " ".join(Question)
+                        for i in self.fullGames[Question]['Win']:
+                            A.append(i)
+                        for i in self.fullGames[Question]['Loss']:
+                            A.append(i)
+                        for i in self.fullGames[Question]['Draw']:
+                            A.append(i)
+
+                    elif len(difflib.get_close_matches(" ".join(Question), self.fullGames, cutoff=0.8)) > 0:
+                        if tkMessageBox.askyesno('Suggestion', 'Did you mean ' + difflib.get_close_matches(" ".join(Question), self.fullGames, cutoff=0.75)[0]):
+                            #self.window.lift()
+                            Question = difflib.get_close_matches(" ".join(Question), self.fullGames, cutoff=0.8)[0]
+                            for i in self.fullGames[Question]['Win']:
+                                A.append(i)
+                            for i in self.fullGames[Question]['Loss']:
+                                A.append(i)
+                            for i in self.fullGames[Question]['Draw']:
+                                A.append(i)
+                        else:
+                            self.window.lift()
+
+            if len(A) > 0 and A[0] != 'None':
                 AnswerPage = Toplevel()
                 AnswerPage.title('Answer')
-                ThirdWindow = Answer(A, AnswerPage, self.fullGames)
+                ThirdWindow = Answer(AnswerPage, A)
                 AnswerPage.mainloop()
+        
             else:
-                if len(difflib.get_close_matches(A, self.fullGames)) > 0:
-                    if tkMessageBox.askyesno('Suggestion','Did you mean ' + difflib.get_close_matches(A, self.fullGames)[0]):
-                        AnswerPage = Toplevel()
-                        AnswerPage.title('Answer')
-                        ThirdWindow = Answer(difflib.get_close_matches(A, self.fullGames)[0], AnswerPage, self.fullGames)
-                        AnswerPage.mainloop()
-                    else:
-                        self.window.lift()
+                tkMessageBox.showinfo('Error', 'There was no answer to your question/Please enter a valid question')
+                self.window.lift()
+
+    def gamesWon(self, question):
+        newQuestion = []
+        for i in question:
+            newQuestion.append(i)
+        Answer = []
+        homeTeam = ''
+        awayTeam = ''
+        for i in range(len(question)):
+            if question[i] in self.fullGames:
+                if homeTeam == '':
+                    homeTeam = question[i]
                 else:
-                    tkMessageBox.showinfo('Error', 'Please enter a valid team')
+                    awayTeam = question[i]
+            elif question[i] not in self.fullGames:
+                if len(difflib.get_close_matches(question[i], self.fullGames, cutoff=0.7)) > 0:
+                    if homeTeam == '':
+                        homeTeam = difflib.get_close_matches(question[i], self.fullGames,cutoff=0.7)[0]
+                    else:
+                        awayTeam = difflib.get_close_matches(question[i], self.fullGames,cutoff=0.7)[0]
+                    newQuestion[i] = difflib.get_close_matches(question[i], self.fullGames,cutoff=0.7)[0]
+                elif i+1 < len(question):
+                    word = question[i] + ' ' + question[i+1]
+                    if word in self.fullGames:
+                        if homeTeam == '':
+                            homeTeam = word
+                        else:
+                            awayTeam = word
+                    elif word not in self.fullGames:
+                        if len(difflib.get_close_matches(word, self.fullGames, cutoff=0.7)) > 0:
+                            newQuestion[i:i+2] = difflib.get_close_matches(word, self.fullGames, cutoff=0.7)
+                            if homeTeam == '':
+                                homeTeam = difflib.get_close_matches(word, self.fullGames, cutoff=0.7)[0]
+                            else:
+                                awayTeam = difflib.get_close_matches(word, self.fullGames, cutoff=0.7)[0]
+
+
+        if newQuestion != question:
+            if tkMessageBox.askyesno('Suggestion', 'Did you mean ' + " ".join(newQuestion)):
+                for i in self.fullGames[homeTeam]['Win']:
+                    if awayTeam != '':
+                        if i[2] == awayTeam:
+                            if 'Where' in question:
+                                Answer.append(i[3])
+                            else:
+                                Answer.append(i)
+                    else:
+                        Answer.append(i)
+                return Answer
+            else:
+                Answer = ['None']
+                self.window.lift()
+                return Answer
+        elif homeTeam == '':
+            Answer = ['None']
+            return Answer
+        else:
+            for i in self.fullGames[homeTeam]['Win']:
+                if awayTeam != '':
+                    if i[2] == awayTeam:
+                        if 'Where' in question:
+                            Answer.append(i[3])
+                        else:
+                            Answer.append(i)
+                else:
+                    Answer.append(i)
+            return Answer
+
+    def gamesLost(self, question):
+        newQuestion = []
+        for i in question:
+            newQuestion.append(i)
+        Answer = []
+        homeTeam = ''
+        awayTeam = ''
+        for i in range(len(question)):
+            if question[i] in self.fullGames:
+                if homeTeam == '':
+                    homeTeam = question[i]
+                else:
+                    awayTeam = question[i]
+            elif question[i] not in self.fullGames:
+                if len(difflib.get_close_matches(question[i], self.fullGames, cutoff=0.7)) > 0:
+                    if homeTeam == '':
+                        homeTeam = difflib.get_close_matches(question[i], self.fullGames, cutoff=0.7)[0]
+                    else:
+                        awayTeam = difflib.get_close_matches(question[i], self.fullGames, cutoff=0.7)[0]
+                    newQuestion[i] = difflib.get_close_matches(question[i], self.fullGames, cutoff=0.7)[0]
+                elif i + 1 < len(question):
+                    word = question[i] + ' ' + question[i + 1]
+                    if word in self.fullGames:
+                        if homeTeam == '':
+                            homeTeam = word
+                        else:
+                            awayTeam = word
+                    elif word not in self.fullGames:
+                        if len(difflib.get_close_matches(word, self.fullGames, cutoff=0.7)) > 0:
+                            newQuestion[i:i + 2] = difflib.get_close_matches(word, self.fullGames, cutoff=0.7)
+                            if homeTeam == '':
+                                homeTeam = difflib.get_close_matches(word, self.fullGames, cutoff=0.7)[0]
+                            else:
+                                awayTeam = difflib.get_close_matches(word, self.fullGames, cutoff=0.7)[0]
+
+        if newQuestion != question:
+            if tkMessageBox.askyesno('Suggestion', 'Did you mean ' + " ".join(newQuestion)):
+                Answer = Answer
+            else:
+                Answer = ['None']
+                self.window.lift()
+                return Answer
+        elif homeTeam == '':
+            Answer = ['None']
+            return Answer
+
+        for i in self.fullGames[homeTeam]['Loss']:
+            if awayTeam != '':
+                if i[2] == awayTeam:
+                    Answer.append(i)
+            else:
+                Answer.append(i)
+        return Answer
+    def gamesDrew(self, question):
+        newQuestion = []
+        for i in question:
+            newQuestion.append(i)
+        Answer = []
+        homeTeam = ''
+        awayTeam = ''
+        for i in range(len(question)):
+            if question[i] in self.fullGames:
+                if homeTeam == '':
+                    homeTeam = question[i]
+                else:
+                    awayTeam = question[i]
+            elif question[i] not in self.fullGames:
+                if len(difflib.get_close_matches(question[i], self.fullGames, cutoff=0.7)) > 0:
+                    if homeTeam == '':
+                        homeTeam = difflib.get_close_matches(question[i], self.fullGames, cutoff=0.7)[0]
+                    else:
+                        awayTeam = difflib.get_close_matches(question[i], self.fullGames, cutoff=0.7)[0]
+                    newQuestion[i] = difflib.get_close_matches(question[i], self.fullGames, cutoff=0.7)[0]
+
+                elif i + 1 < len(question):
+                    word = question[i] + ' ' + question[i + 1]
+                    if word in self.fullGames:
+                        if homeTeam == '':
+                            homeTeam = word
+                        else:
+                            awayTeam = word
+                    elif word not in self.fullGames:
+                        if len(difflib.get_close_matches(word, self.fullGames, cutoff=0.7)) > 0:
+                            newQuestion[i:i + 2] = difflib.get_close_matches(word, self.fullGames, cutoff=0.7)
+                            if homeTeam == '':
+                                homeTeam = difflib.get_close_matches(word, self.fullGames, cutoff=0.7)[0]
+                            else:
+                                awayTeam = difflib.get_close_matches(word, self.fullGames, cutoff=0.7)[0]
+
+
+        if newQuestion != question:
+            if tkMessageBox.askyesno('Suggestion', 'Did you mean ' + " ".join(newQuestion)):
+                Answer = Answer
+            else:
+                Answer = ['None']
+                self.window.lift()
+                return Answer
+        elif homeTeam == '':
+            Answer = ['None']
+            return Answer
+
+        for i in self.fullGames[homeTeam]['Draw']:
+            if awayTeam != '':
+                if i[2] == awayTeam:
+                    Answer.append(i)
+            else:
+                Answer.append(i)
+        return Answer
 
 class Answer:
-    def __init__(self, answer, window, Games):
+    def __init__(self, window, Answer):
         self.window = window
-        self.allGames = Games
-        self.answer = answer
+        self.answer = Answer
         self.photo3 = PhotoImage(file = 'Answer Page.gif')
         #Image source=https://www.uefa.com/uefachampionsleague/index.html
         self.background = Label(self.window, image=self.photo3)
         self.background.pack()
         self.answerBox = Listbox(self.window, height=30, width=160)
         self.answerBox.place(x=15, y=50)
-        self.checkAnswer()
-    def checkAnswer(self):
-        keywords = {}
-        if self.answer in self.allGames:
-            for i in self.allGames[self.answer]:
-                for j in self.allGames[self.answer][i]:
-                    self.answerBox.insert(END, j)
+        for i in self.answer:
+            self.answerBox.insert(END, i)
 
 Main = MainMenu()
 mainloop()
