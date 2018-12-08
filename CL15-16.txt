@@ -1,0 +1,412 @@
+Group A:
+
+[Tue Sep/13]
+  20.45  Paris Saint-Germain  1-1  Arsenal              @ Parc des Princes, Paris
+           [Cavani 1`  ; Sanchez 78`  ]
+  20.45  Basel                1-1  Ludogorets Razgrad   @ St. Jakob-Park, Basel
+           [Steffen 79`  ; Cafu 45`  ]
+
+[Wed Sep/28]
+  20.45  Ludogorets Razgrad   1-3  Paris Saint-Germain  @ Vasil Levski National Stadium, Sofia 
+           [Natanael 16`  ; Matuidi 41`   Cavani 56`  , 60`  ]
+  20.45  Arsenal              2-0  Basel                @ Emirates Stadium, London
+           [Walcott 7`  , 26`  ]
+
+[Wed Oct/19]
+  20.45  Arsenal              6-0  Ludogorets Razgrad   @ Emirates Stadium, London
+           [Sanchez 13`   Walcott 42`   Oxlade-Chamberlain 47`   Ozil 56`  , 83`  , 87`  ]
+  20.45  Paris Saint-Germain  3-0  Basel                @ Parc des Princes, Paris
+           [Di Maria 40`   Lucas 62`   Cavani 90+3 (pen.)`  ]
+
+[Tue Nov/1]
+  20.45  Ludogorets Razgrad   2-3  Arsenal              @ Vasil Levski National Stadium, Sofia 
+           [Cafu 12`   Ke?eru 15`  ; Xhaka 20`   Giroud 42`   Ozil 88`  ]
+  20.45  Basel                1-2  Paris Saint-Germain  @ St. Jakob-Park, Basel
+           [Zuffi 76`  ; Matuidi 43`   Meunier 90`  ]
+
+[Wed Nov/23]
+  20.45  Arsenal              2-2  Paris Saint-Germain  @ Emirates Stadium, London
+           [Giroud 45+1 (pen.)`   Verratti 60 (o.g)`  ; Cavani 18`   Iwobi 77 (o.g)`  ]
+  20.45  Ludogorets Razgrad   0-0  Basel                @ Vasil Levski National Stadium, Sofia 
+
+[Tue Dec/6]
+  20.45  Paris Saint-Germain  2-2  Ludogorets Razgrad   @ Parc des Princes, Paris
+           [Cavani 61`   Di Maria 90+2`  ; Misidjan 15`   Wanderson 69`  ]
+  20.45  Basel                1-4  Arsenal              @ St. Jakob-Park, Basel
+           [Doumbia 78`  ; Perez 8`  , 16`  , 47`   Iwobi 53`  ]
+
+
+Group B:
+
+[Tue Sep/13]
+  20.45  Dynamo Kyiv          1-2  Napoli               @ Olympic Stadium, Kiev
+           [Harmash 26`  ; Milik 36`  , 45+2`  ]
+  20.45  Benfica              1-1  Besiktas             @ Estadio da Luz, Lisbon
+           [Cervi 12`  ; Talisca 90+3`  ]
+[Wed Sep/28]
+  20.45  Besiktas             1-1  Dynamo Kyiv          @ Vodafone Arena, Istanbul
+           [Quaresma 29`  ; Tsyhankov 65`  ]
+  20.45  Napoli               4-2  Benfica              @ Stadio San Paolo, Naples
+           [Hamsik 20`   Mertens 51`  , 58`   Milik 54 (pen.)`  ; Guedes 70`   Salvio 86`  ]
+
+[Wed Oct/19]
+  20.45  Napoli               2-3  Besiktas             @ Stadio San Paolo, Naples
+           [Mertens 30`   Gabbiadini 69 (pen.)`  ; Adriano 12`   Aboubakar 38`  , 86`  ]
+  20.45  Dynamo Kyiv          0-2  Benfica              @ Olympic Stadium, Kiev
+           [-; Salvio 9 (pen.)`   Cervi 55`  ]
+
+[Tue Nov/1]
+  18.45  Besiktas             1-1  Napoli               @ Vodafone Arena, Istanbul
+           [Quaresma 79 (pen.)`  ; Hamsik 82`  ]
+  20.45  Benfica              1-0  Dynamo Kyiv          @ Estadio da Luz, Lisbon
+           [Salvio 45+2 (pen.)`  ]
+
+[Wed Nov/23]
+  18.45  Besiktas             3-3  Benfica              @ Vodafone Arena, Istanbul
+           [Tosun 58`   Quaresma 83 (pen.)`   Aboubakar 89`  ; Guedes 10`   Semedo 25`   Fejsa 31`  ]
+  20.45  Napoli               0-0  Dynamo Kyiv          @ Stadio San Paolo, Naples
+
+[Tue Dec/6]
+  20.45  Dynamo Kyiv          6-0  Besiktas             @ Olympic Stadium, Kiev
+           [Besyedin 9`   Yarmolenko 30 (pen.)`   Buyalskyi 32`   Gonzalez 45+3`   Sydorchuk 60`   Junior Moraes 77`  ]
+  20.45  Benfica              1-2  Napoli               @ Estadio da Luz, Lisbon
+           [Jimenez 87`  ; Callejon 60`   Mertens 79`  ]
+
+
+Group C:
+
+[Tue Sep/13]
+  20.45  Barcelona            7-0  Celtic               @ Camp Nou, Barcelona
+           [Messi 3`  , 27`  , 60`   Neymar 50`   Iniesta 59`   L. Suarez 75`  , 88`  ]
+
+[Wed Sep/14]
+  20.45  Manchester City      4-0  Borussia Monchengladbach  @ City of Manchester Stadium, Manchester
+           [Aguero 9`  , 28 (pen.)`  , 77`   Iheanacho 90+1`  ]
+
+[Wed Sep/28]
+  20.45  Borussia Monchengladbach  1-2  Barcelona            @ Borussia-Park, Monchengladbach
+           [Hazard 34`  ; Turan 65`   Pique 74`  ]
+  20.45  Celtic               3-3  Manchester City      @ Celtic Park, Glasgow
+           [Dembele 3`  , 47`   Sterling 20 (o.g)`  ; Fernandinho 12`   Sterling 28`   Nolito 55`  ]
+
+[Wed Oct/19]
+  20.45  Celtic               0-2  Borussia Monchengladbach  @ Celtic Park, Glasgow
+           [-; Stindl 57`   Hahn 77`  ]
+  20.45  Barcelona            4-0  Manchester City      @ Camp Nou, Barcelona
+           [Messi 17`  , 61`  , 69`   Neymar 89`  ]
+
+[Tue Nov/1]
+  20.45  Borussia Monchengladbach  1-1  Celtic               @ Borussia-Park, Monchengladbach
+           [Stindl 32`  ; Dembele 76 (pen.)`  ]
+  20.45  Manchester City      3-1  Barcelona            @ City of Manchester Stadium, Manchester
+           [Gundogan 39`  , 74`   De Bruyne 51`  ; Messi 21`  ]
+
+[Wed Nov/23]
+  20.45  Celtic               0-2  Barcelona            @ Celtic Park, Glasgow
+           [-; Messi 24`  , 56 (pen.)`  ]
+  20.45  Borussia Monchengladbach  1-1  Manchester City      @ Borussia-Park, Monchengladbach
+           [Raffael 23`  ; Silva 45+1`  ]
+
+[Tue Dec/6]
+  20.45  Barcelona            4-0  Borussia Monchengladbach  @ Camp Nou, Barcelona
+           [Messi 16`   Turan 50`  , 53`  , 67`  ]
+  20.45  Manchester City      1-1  Celtic               @ City of Manchester Stadium, Manchester
+           [Iheanacho 8`  ; Roberts 4`  ]
+
+
+Group D:
+
+[Tue Sep/13]
+  20.45  Bayern Munchen       5-0  Rostov               @ Allianz Arena, Munchen
+           [Lewandowski 28 (pen.)`   Muller 45+2`   Kimmich 53`  , 60`   Bernat 90`  ]
+  20.45  PSV Eindhoven        0-1  Atletico Madrid      @ Philips Stadion, Eindhoven
+           [-; Saul 43`  ]
+
+[Wed Sep/28]
+  20.45  Atletico Madrid      1-0  Bayern Munchen       @ Vicente Calderon, Madrid
+           [Carrasco 35`  ]
+  20.45  Rostov               2-2  PSV Eindhoven        @ Olimp-2, Rostov-on-Don
+           [Poloz 8`  , 37`  ; Propper 14`   L. de Jong 45+1`  ]
+
+[Wed Oct/19]
+  20.45  Rostov               0-1  Atletico Madrid      @ Olimp-2, Rostov-on-Don
+           [-; Carrasco 62`  ]
+  20.45  Bayern Munchen       4-1  PSV Eindhoven        @ Allianz Arena, Munchen
+           [Muller 13`   Kimmich 21`   Lewandowski 59`   Robben 84`  ; Narsingh 41`  ]
+
+[Tue Nov/1]
+  20.45  Atletico Madrid      2-1  Rostov               @ Vicente Calderon, Madrid
+           [Griezmann 28`  , 90+3`  ; Azmoun 30`  ]
+  20.45  PSV Eindhoven        1-2  Bayern Munchen       @ Philips Stadion, Eindhoven
+           [Arias 14`  ; Lewandowski 34 (pen.)`  , 74`  ]
+
+[Wed Nov/23]
+  18.00  Rostov               3-2  Bayern Munchen       @ Olimp-2, Rostov-on-Don
+           [Azmoun 44`   Poloz 50 (pen.)`   Noboa 67`  ; Douglas Costa 35`   Bernat 52`  ]
+  20.45  Atletico Madrid      2-0  PSV Eindhoven        @ Vicente Calderon, Madrid
+           [Gameiro 55`   Griezmann 66`  ]
+
+[Tue Dec/6]
+  20.45  Bayern Munchen       1-0  Atletico Madrid      @ Allianz Arena, Munchen
+           [Lewandowski 28`  ]
+  20.45  PSV Eindhoven        0-0  Rostov               @ Philips Stadion, Eindhoven
+
+
+Group E:
+
+[Wed Sep/14]
+  20.45  Bayer Leverkusen     2-2  CSKA Moscow          @ BayArena, Leverkusen
+           [Mehmedi 9`   Calhanoglu 15`  ; Dzagoev 36`   Eremenko 38`  ]
+  20.45  Tottenham Hotspur    1-2  Monaco               @ Wembley Stadium, London 
+           [Alderweireld 45`  ; Silva 15`   Lemar 31`  ]
+
+[Tue Sep/27]
+  20.45  Monaco               1-1  Bayer Leverkusen     @ Stade Louis II, Monaco
+           [Glik 90+4`  ; Hernandez 74`  ]
+  20.45  CSKA Moscow          0-1  Tottenham Hotspur    @ Arena CSKA, Moscow
+           [-; Son Heung-min 71`  ]
+
+[Tue Oct/18]
+  20.45  CSKA Moscow          1-1  Monaco               @ Arena CSKA, Moscow
+           [Traore 34`  ; Silva 87`  ]
+  20.45  Bayer Leverkusen     0-0  Tottenham Hotspur    @ BayArena, Leverkusen
+
+[Wed Nov/2]
+  20.45  Monaco               3-0  CSKA Moscow          @ Stade Louis II, Monaco
+           [Germain 13`   Falcao 29`  , 41`  ]
+  20.45  Tottenham Hotspur    0-1  Bayer Leverkusen     @ Wembley Stadium, London 
+           [-; Kampl 65`  ]
+
+[Tue Nov/22]
+  18.00  CSKA Moscow          1-1  Bayer Leverkusen     @ Arena CSKA, Moscow
+           [Natkho 76 (pen.)`  ; Volland 16`  ]
+  20.45  Monaco               2-1  Tottenham Hotspur    @ Stade Louis II, Monaco
+           [Sidibe 48`   Lemar 53`  ; Kane 52 (pen.)`  ]
+
+[Wed Dec/7]
+  20.45  Bayer Leverkusen     3-0  Monaco               @ BayArena, Leverkusen
+           [Yurchenko 30`   Brandt 48`   De Sanctis 82 (o.g)`  ]
+  20.45  Tottenham Hotspur    3-1  CSKA Moscow          @ Wembley Stadium, London 
+           [Alli 38`   Kane 45+1`   Akinfeev 77 (o.g)`  ; Dzagoev 33`  ]
+
+
+Group F:
+
+[Wed Sep/14]
+  20.45  Real Madrid          2-1  Sporting CP          @ Santiago Bernabeu, Madrid
+           [Ronaldo 89`   Morata 90+4`  ; Bruno Cesar 48`  ]
+  20.45  Legia Warsaw         0-6  Borussia Dortmund    @ Polish Army Stadium, Warsaw
+           [-; Gotze 7`   Papastathopoulos 15`   Bartra 17`   Guerreiro 51`   Castro 76`   Aubameyang 87`  ]
+
+[Tue Sep/27]
+  20.45  Borussia Dortmund    2-2  Real Madrid          @ Westfalenstadion, Dortmund
+           [Aubameyang 43`   Schurrle 87`  ; Ronaldo 17`   Varane 68`  ]
+  20.45  Sporting CP          2-0  Legia Warsaw         @ Estadio Jose Alvalade, Lisbon
+           [B. Ruiz 28`   Dost 37`  ]
+
+[Tue Oct/18]
+  20.45  Sporting CP          1-2  Borussia Dortmund    @ Estadio Jose Alvalade, Lisbon
+           [Bruno Cesar 67`  ; Aubameyang 9`   Weigl 43`  ]
+  20.45  Real Madrid          5-1  Legia Warsaw         @ Santiago Bernabeu, Madrid
+           [Bale 16`   Jodlowiec 20 (o.g)`   Asensio 37`   Vazquez 68`   Morata 84`  ; Radovic 22 (pen.)`  ]
+
+[Wed Nov/2]
+  20.45  Borussia Dortmund    1-0  Sporting CP          @ Westfalenstadion, Dortmund
+           [Ramos 12`  ]
+  20.45  Legia Warsaw         3-3  Real Madrid          @ Polish Army Stadium, Warsaw
+           [Odjidja-Ofoe 40`   Radovic 58`   Moulin 83`  ; Bale 1`   Benzema 35`   Kovacic 85`  ]
+
+[Tue Nov/22]
+  20.45  Sporting CP          1-2  Real Madrid          @ Estadio Jose Alvalade, Lisbon
+           [Adrien 80 (pen.)`  ; Varane 29`   Benzema 87`  ]
+  20.45  Borussia Dortmund    8-4  Legia Warsaw         @ Westfalenstadion, Dortmund
+           [Kagawa 17`  , 18`   Sahin 20`   Dembele 29`   Reus 32`  , 52`   Passlack 81`   Rzezniczak 90+2 (o.g)`  ; Prijovic 10`  , 24`   Kucharczyk 57`   Nikolic 83`  ]
+
+[Wed Dec/7]
+  20.45  Real Madrid          2-2  Borussia Dortmund    @ Santiago Bernabeu, Madrid
+           [Benzema 28`  , 53`  ; Aubameyang 60`   Reus 88`  ]
+  20.45  Legia Warsaw         1-0  Sporting CP          @ Polish Army Stadium, Warsaw
+           [Guilherme 30`  ]
+
+
+Group G:
+
+[Wed Sep/14]
+  20.45  Club Brugge          0-3  Leicester City       @ Jan Breydel Stadium, Bruges
+           [-; Albrighton 5`   Mahrez 29`  , 61 (pen.)`  ]
+  20.45  Porto                1-1  Copenhagen           @ Estadio do Dragao, Porto
+           [Otavio 13`  ; Cornelius 52`  ]
+
+[Tue Sep/27]
+  20.45  Copenhagen           4-0  Club Brugge          @ Parken Stadium, Copenhagen
+           [Denswil 53 (o.g)`   Delaney 64`   Santander 69`   Jorgensen 90+2`  ]
+  20.45  Leicester City       1-0  Porto                @ King Power Stadium, Leicester
+           [Slimani 25`  ]
+
+[Tue Oct/18]
+  20.45  Leicester City       1-0  Copenhagen           @ King Power Stadium, Leicester
+           [Mahrez 40`  ]
+  20.45  Club Brugge          1-2  Porto                @ Jan Breydel Stadium, Bruges
+           [Vossen 12`  ; Layun 68`   Silva 90+3 (pen.)`  ]
+
+[Wed Nov/2]
+  20.45  Copenhagen           0-0  Leicester City       @ Parken Stadium, Copenhagen
+  20.45  Porto                1-0  Club Brugge          @ Estadio do Dragao, Porto
+           [Silva 37`  ]
+
+[Tue Nov/22]
+  20.45  Leicester City       2-1  Club Brugge          @ King Power Stadium, Leicester
+           [Okazaki 5`   Mahrez 30 (pen.)`  ; Izquierdo 52`  ]
+  20.45  Copenhagen           0-0  Porto                @ Parken Stadium, Copenhagen
+
+[Wed Dec/7]
+  20.45  Club Brugge          0-2  Copenhagen           @ Jan Breydel Stadium, Bruges
+           [-; Mechele 8 (o.g)`   Jorgensen 15`  ]
+  20.45  Porto                5-0  Leicester City       @ Estadio do Dragao, Porto
+           [Silva 6`  , 64 (pen.)`   Corona 26`   Brahimi 44`   Jota 77`  ]
+
+
+Group H:
+
+[Wed Sep/14]
+  20.45  Lyon                 3-0  Dinamo Zagreb        @ Parc Olympique Lyonnais, Decines-Charpieu
+           [Tolisso 13`   Ferri 49`   Cornet 57`  ]
+  20.45  Juventus             0-0  Sevilla              @ Juventus Stadium, Turin
+
+[Tue Sep/27]
+  20.45  Sevilla              1-0  Lyon                 @ Ramon Sanchez Pizjuan, Seville
+           [Ben Yedder 53`  ]
+  20.45  Dinamo Zagreb        0-4  Juventus             @ Stadion Maksimir, Zagreb
+           [-; Pjanic 24`   Higuain 31`   Dybala 57`   Dani Alves 85`  ]
+
+[Tue Oct/18]
+  20.45  Dinamo Zagreb        0-1  Sevilla              @ Stadion Maksimir, Zagreb
+           [-; Nasri 37`  ]
+  20.45  Lyon                 0-1  Juventus             @ Parc Olympique Lyonnais, Decines-Charpieu
+           [-; Cuadrado 76`  ]
+
+[Wed Nov/2]
+  20.45  Sevilla              4-0  Dinamo Zagreb        @ Ramon Sanchez Pizjuan, Seville
+           [Vietto 31`   Escudero 66`   Nzonzi 80`   Ben Yedder 87`  ]
+  20.45  Juventus             1-1  Lyon                 @ Juventus Stadium, Turin
+           [Higuain 13 (pen.)`  ; Tolisso 85`  ]
+
+[Tue Nov/22]
+  20.45  Dinamo Zagreb        0-1  Lyon                 @ Stadion Maksimir, Zagreb
+           [-; Lacazette 72`  ]
+  20.45  Sevilla              1-3  Juventus             @ Ramon Sanchez Pizjuan, Seville
+           [Pareja 9`  ; Marchisio 45+2 (pen.)`   Bonucci 84`   Mandzukic 90+4`  ]
+
+[Wed Dec/7]
+  20.45  Lyon                 0-0  Sevilla              @ Parc Olympique Lyonnais, Decines-Charpieu
+  20.45  Juventus             2-0  Dinamo Zagreb        @ Juventus Stadium, Turin
+           [Higuain 52`   Rugani 73`  ]
+
+Round of 16 - 1st Leg
+
+[Tue Feb/14]
+  20.45  Paris Saint-Germain  4-0  Barcelona            @ Parc des Princes, Paris
+           [Di Maria 18`  , 55`   Draxler 40`   Cavani 72`  ]
+  20.45  Benfica              1-0  Borussia Dortmund    @ Estadio da Luz, Lisbon
+           [Mitroglou 48`  ]
+
+[Wed Feb/15]
+  20.45  Real Madrid          3-1  Napoli               @ Santiago Bernabeu, Madrid
+           [Benzema 18`   Kroos 49`   Casemiro 54`  ; Insigne 8`  ]
+  20.45  Bayern Munchen       5-1  Arsenal              @ Allianz Arena, Munchen
+           [Robben 11`   Lewandowski 53`   Thiago 56`  , 63`   Muller 88`  ; Sanchez 30`  ]
+
+[Tue Feb/21]
+  20.45  Manchester City      5-3  Monaco               @ City of Manchester Stadium, Manchester
+           [Sterling 26`   Aguero 58`  , 71`   Stones 77`   Sane 82`  ; Falcao 32`  , 61`   Mbappe 40`  ]
+  20.45  Bayer Leverkusen     2-4  Atletico Madrid      @ BayArena, Leverkusen
+           [Bellarabi 48`   Savic 68 (o.g)`  ; Saul 17`   Griezmann 25`   Gameiro 59 (pen.)`   Torres 86`  ]
+
+[Wed Feb/22]
+  20.45  Sevilla              2-1  Leicester City       @ Ramon Sanchez Pizjuan, Seville
+           [Sarabia 25`   Correa 62`  ; Vardy 73`  ]
+  20.45  Porto                0-2  Juventus             @ Estadio do Dragao, Porto
+           [-; Pjaca 72`   Dani Alves 74`  ]
+
+
+Round of 16 - 2nd Leg
+
+[Tue Mar/7]
+  20.45  Arsenal              1-5  Bayern Munchen       @ Emirates Stadium, London
+           [Walcott 20`  ; Lewandowski 55 (pen.)`   Robben 68`   Douglas Costa 78`   Vidal 80`  , 85`  ]
+  20.45  Napoli               1-3  Real Madrid          @ Stadio San Paolo, Naples
+           [Mertens 24`  ; Ramos 52`   Mertens 57 (o.g)`   Morata 90+1`  ]
+
+[Wed Mar/8]
+  20.45  Borussia Dortmund    4-0  Benfica              @ Westfalenstadion, Dortmund
+           [Aubameyang 4`  , 61`  , 85`   Pulisic 59`  ]
+  20.45  Barcelona            6-1  Paris Saint-Germain  @ Camp Nou, Barcelona
+           [L. Suarez 3`   Kurzawa 40 (o.g)`   Messi 50 (pen.)`   Neymar 88`  , 90+1 (pen.)`   Roberto 90+5`  ; Cavani 62`  ]
+
+[Tue Mar/14]
+  20.45  Juventus             1-0  Porto                @ Juventus Stadium, Turin
+           [Dybala 42 (pen.)`  ]
+  20.45  Leicester City       2-0  Sevilla              @ King Power Stadium, Leicester
+           [Morgan 27`   Albrighton 54`  ]
+
+[Wed Mar/15]
+  20.45  Atletico Madrid      0-0  Bayer Leverkusen     @ Vicente Calderon, Madrid
+  20.45  Monaco               3-1  Manchester City      @ Stade Louis II, Monaco
+           [Mbappe 8`   Fabinho 29`   Bakayoko 77`  ; Sane 71`  ]
+
+
+Quarter-finals - 1st Leg
+
+[Tue Apr/11]
+  20.45  Juventus             3-0  Barcelona            @ Juventus Stadium, Turin
+           [Dybala 7`  , 22`   Chiellini 55`  ]
+
+[Wed Apr/12]
+  20.45  Atletico Madrid      1-0  Leicester City       @ Vicente Calderon, Madrid
+           [Griezmann 28 (pen.)`  ]
+  18.45  Borussia Dortmund    2-3  Monaco               @ Westfalenstadion, Dortmund
+           [Dembele 57`   Kagawa 84`  ; Mbappe 19`  , 79`   Bender 35 (o.g) `  ]
+  20.45  Bayern Munchen       1-2  Real Madrid          @ Allianz Arena, Munchen
+           [Vidal 25`  ; Ronaldo 47`  , 77`  ]
+
+
+Quarter-finals - 2nd Leg
+
+[Tue Apr/18]
+  20.45  Leicester City       1-1  Atletico Madrid      @ King Power Stadium, Leicester
+           [Vardy 61`  ; Saul 26`  ]
+  20.45  Real Madrid          4-2  Bayern Munchen       @ Santiago Bernabeu, Madrid
+           [Ronaldo 76`  , 105`  , 110`   Asensio 112`  ; Lewandowski 53 (pen.)`   Ramos 78 (o.g)`  ]
+
+[Wed Apr/19]
+  20.50  Monaco               3-1  Borussia Dortmund    @ Stade Louis II, Monaco 
+           [Mbappe 3`   Falcao 17`   Germain 81`  ; Reus 48`  ]
+  20.45  Barcelona            0-0  Juventus             @ Camp Nou, Barcelona
+
+
+
+Semi-finals - 1st Leg
+
+[Tue May/2]
+  20.45  Real Madrid          3-0  Atletico Madrid      @ Santiago Bernabeu, Madrid
+           [Ronaldo 10`  , 73`  , 86`  ]
+
+[Wed May/3]
+  20.45  Monaco               0-2  Juventus             @ Stade Louis II, Monaco
+           [-; Higuain 29`  , 59`  ]
+
+Semi-finals - 2nd Leg
+
+[Tue May/9]
+  20.45  Juventus             2-1  Monaco               @ Juventus Stadium, Turin
+           [Mandzukic 33`   Dani Alves 44`  ; Mbappe 69`  ]
+
+[Wed May/10]
+  20.45  Atletico Madrid      2-1  Real Madrid          @ Vicente Calderon, Madrid
+           [Saul 12`   Griezmann 16 (pen.)`  ; Isco 42`  ]
+
+Final
+
+[Sat Jun/3]
+  20.45  Juventus             1-4  Real Madrid          @ Millennium Stadium, Cardiff
+           [Mandzukic 27`  ; Ronaldo 20`  , 64`   Casemiro 61`   Asensio 90`  ]
