@@ -3,6 +3,7 @@
 import difflib
 from Tkinter import *
 import tkMessageBox
+#These are the 3 libraries I use
 
 master = Tk()
 
@@ -25,17 +26,24 @@ class MainMenu:
         self.fileList.insert(0, 'CL17-18')
         self.fileList.insert(0, 'CL16-17')
         self.fileList.insert(0, 'CL15-16')
+        #All of these make up the User Interface in the Main Page
         self.counter = list()
+        #This is to keep track of the pages open
 
     def Start(self):
         filename = self.fileList.get('active')
         if filename != '':
+            #This is to ensure the user chooses a season
             if len(self.counter) == 0:
+                #This makes sure that there is no page open
                 self.counter.append('1')
                 SearchPage = Toplevel()
                 SearchPage.title('Search for an Answer')
                 SecondWindow = Search(filename, SearchPage, self.counter)
                 SearchPage.mainloop()
+                #This makes the Search page
+            else:
+                tkMessageBox.showinfo('Error', 'You arleady have a season open, close it to open another one')
         else:
             tkMessageBox.showinfo('Error', 'Please select a season')
 
@@ -59,13 +67,17 @@ class Search:
         self.teamDictionary = self.readFile(self.file)[0]
         self.allGames = self.readFile(self.file)[1]
         self.fullGames = self.saveScore(self.teamDictionary, self.allGames)
-        self.keywords = {"wins wons beat winning win won": self.gamesWon, "losts lose losses losing loss lost": self.gamesLost, "drew draw draws tie ties tied drawing": self.gamesDrew, "played faced v.s. vs versus play face games game": self.gamesPlayed}
+        self.keywords = {"wins wons beat winning win won beating": self.gamesWon, "losts lose losses loses losing loss lost": self.gamesLost, "drew draw draws tie ties tied drawing": self.gamesDrew, "played faced v.s. vs versus play face games game": self.gamesPlayed}
+        #This is the dictionary with the keywords
+        #User Interface
 
         Window.protocol('WM_DELETE_WINDOW', self.closeWindow)
+        #This is to keep track of closed windows
 
     def closeWindow(self):
         self.counter.remove(self.counter[0])
         self.window.destroy()
+        #This changes the list with open windows
         
     def readFile(self, filename):
         team = dict()
@@ -73,41 +85,52 @@ class Search:
         game = 0
         allGames = []
         league = open(filename)
+        #I'm organizing the text files into a dictionary
         for line in league:
             line = line.strip()
             if line.startswith('['):
+                #This is the format for a date in the text file
                 if "`" not in line:
                     date = line
                 else:
                     goals = line.split("`")
                     for i in goals:
+                        #This is the goals format in the text file
                         i = i.strip()
                         i = i.replace(',','')
                         i = i.replace('[','')
                         i = i.replace(']','')
                         game.append(i)
             else:
+                #This means that its a team name, or the goals scored
                 i = 0
                 start = i
                 game = []
                 while i != len(line):
                     if line[i] == ' ':
                         if line[i+1] != ' ' and line[i-1] == ' ':
+                            #This means that the current letter is the start of a new word
                             start = i+1
                         elif line[i-1] != ' ' and line[i+1] == ' ':
                             if start != i:
+                                #This means that this is the end of a word
                                 game.append(line[start:i])
                             start = i
+                            #Set the start to the end of the current word
                         i+=1
                     else:
                         i+=1
                     if i+1 == len(line):
+                        #This is to add the last word in the line
                         game.append(line[start:len(line)])
                         game.append(date)
                 if len(game) > 2:
+                    #This is to ensure that the list is an actual game. This is because there are lines in the text file
+                    #where there are just words written, and there is no match information.
                     allGames.append(game)
                     if game[1] not in team:
                         team[game[1]] = dict()
+                        #The dictionary has each team as a key and each team has three dictionaries, win, loss, and draw.
                         team[game[1]]['Win'] = list()
                         team[game[1]]['Draw'] = list()
                         team[game[1]]['Loss'] = list()
@@ -122,13 +145,17 @@ class Search:
             goalsHome = []
             goalsAway = []
             i.pop()
+            #This is to delete the last element in the list which is a space
             if len(i)>6:
+                #This is to make sure that there are goals scored in these matches, 6 is the magic number where there are goals scored.
                 tracker = 0
                 for j in range(6,len(i)):
                     if ';' in i[j]:
+                        #The ';' is a divider between the goals of the home team and the away team
                         i[j] = i[j].replace(';','')
                         i[j] = i[j].replace('-','')
                         tracker = 1
+                        #This is to make sure that the goals get added to the respective team side
                     if tracker == 0:
                         goalsHome.append(i[j])
                     else:
@@ -138,24 +165,33 @@ class Search:
             if goalsAway == []:
                 goalsAway = 'No goals'
             if score[0] > score[2]:
+                #This means that the game was won
                 teams[i[1]]['Win'].append([i[1], i[2], i[3], stadium, date, str(goalsHome), str(goalsAway)])
                 teams[i[3]]['Loss'].append([i[3], (i[2][2::-1]), i[1], stadium, date, str(goalsAway), str(goalsHome)])
+                #I add the match to both the winning team and losing team.
             elif score[0] < score[2]:
+                #This means that the game was lost
                 teams[i[1]]['Loss'].append([i[1], i[2], i[3], stadium, date, str(goalsHome), str(goalsAway)])
                 teams[i[3]]['Win'].append([i[3], (i[2][2::-1]), i[1], stadium, date, str(goalsAway), str(goalsHome)])
+                #Same thing, I add the match to the winning team and losing team
             else:
+                #This means that the game was tied
                 teams[i[1]]['Draw'].append([i[1], i[2], i[3], stadium, date, str(goalsHome), str(goalsAway)])
+                teams[i[3]]['Draw'].append([i[3], i[2], i[1], stadium, date, str(goalsAway), str(goalsHome)])
+                #Same thing
         return teams
 
     def startButton(self):
         Question = self.question.get('1.0', END).strip()
         self.getAnswer(Question)
+        #This calls the search function with the question
 
     def getAnswer(self, Question):
         counter = 0
         if len(Question.split()) == 0:
             tkMessageBox.showinfo('Error', 'Please enter a Question')
             self.window.lift()
+            #This means that the user didn't enter anything
         else:
             A = []
             Question = Question.split()
@@ -164,14 +200,19 @@ class Search:
                     if i.lower() in j:
                         for m in j.split():
                             if i.lower() == m:
+                                #This looks for any word in the question for a keyword
                                 if counter == 0:
                                     #This ensures that there is only one keyword and there aren't any questions like 'Team A win loss'
                                     A = self.keywords[j](Question)
+                                    #This calls the function with the keywords it found, example, 'win' leads to the win function
                                     counter = 1
             if A == []:
+                #This means that the programn didn't find any keywords
                 if len(Question) == 1:
+                    #This means that there is a team name or something else
                     Question = Question[0]
                     if Question in self.fullGames:
+                        #This looks for the team in the list of teams and adds all of their games
                         for i in self.fullGames[Question]['Win']:
                             A.append(i)
                         for i in self.fullGames[Question]['Loss']:
@@ -179,7 +220,9 @@ class Search:
                         for i in self.fullGames[Question]['Draw']:
                             A.append(i)
                     else:
+                        #This looks for a suggestion and returns it to the user
                         if len(difflib.get_close_matches(Question, self.fullGames, cutoff=0.75)) > 0:
+                            #This ensures that the word is atleast 75% close
                             if tkMessageBox.askyesno('Suggestion', 'Did you mean ' + difflib.get_close_matches(Question, self.fullGames, cutoff=0.75)[0]):
                                 #self.window.lift()
                                 Question = difflib.get_close_matches(Question, self.fullGames, cutoff=0.75)[0]
@@ -193,7 +236,9 @@ class Search:
                             A.append('None')
 
                 elif len(Question) == 2:
+                    #This means that there is a team with two words or a one word team with another word
                     if " ".join(Question) in self.fullGames:
+                        #This joins the two words and checks if its in the list of teams
                         Question = " ".join(Question)
                         for i in self.fullGames[Question]['Win']:
                             A.append(i)
@@ -203,6 +248,7 @@ class Search:
                             A.append(i)
 
                     elif len(difflib.get_close_matches(" ".join(Question), self.fullGames, cutoff=0.8)) > 0:
+                        #The similarity has to be atleast 80%
                         if tkMessageBox.askyesno('Suggestion', 'Did you mean ' + difflib.get_close_matches(" ".join(Question), self.fullGames, cutoff=0.8)[0]):
                             #self.window.lift()
                             Question = difflib.get_close_matches(" ".join(Question), self.fullGames, cutoff=0.8)[0]
@@ -216,6 +262,7 @@ class Search:
                         A.append('None')
 
             if len(A) > 0 and A[0] != 'None':
+                #This ensures that there is an answer, 'None' means there was no answer
                 AnswerPage = Toplevel()
                 AnswerPage.title('Answer')
                 ThirdWindow = Answer(AnswerPage, A)
@@ -229,30 +276,41 @@ class Search:
         newQuestion = []
         for i in question:
             newQuestion.append(i)
+        #I make another question clone to them compare them both to know if there were any suggestions made
         Answer = []
         homeTeam = ''
         awayTeam = ''
         for i in range(len(question)):
             if question[i] in self.fullGames:
+                #this checks if one of the elements is in the list of teams
                 if homeTeam == '':
+                    #if this is the first time thats seen then its the home team, else its the away team
                     homeTeam = question[i]
                 else:
                     awayTeam = question[i]
             elif question[i] not in self.fullGames:
                 if len(difflib.get_close_matches(question[i], self.fullGames, cutoff=0.75)) > 0:
+                    #This checks the suggestion with a 75% similarity
                     if homeTeam == '':
+                        #this checks if its the first team seen, else its the away team
                         homeTeam = difflib.get_close_matches(question[i], self.fullGames,cutoff=0.75)[0]
                     else:
                         awayTeam = difflib.get_close_matches(question[i], self.fullGames,cutoff=0.75)[0]
                     newQuestion[i] = difflib.get_close_matches(question[i], self.fullGames,cutoff=0.75)[0]
+                    #This adds the suggested team to the clone question at the same index
                 elif i+1 < len(question):
+                    #this is to make sure that the index isn't out of range
                     word = question[i] + ' ' + question[i+1]
                     if word in self.fullGames:
+                        #This checks the next two words if they're in the list of teams
                         if homeTeam == '':
                             homeTeam = word
                         else:
                             awayTeam = word
                     elif word not in self.fullGames:
+                        #This checks the similarity of the two words with atleast 90% similarity.
+                        #The similarity checks are differented each time because the more words there are the less mistakes
+                        #there needs to be otherwise some words will be mistaken for a team suggestion
                         if len(difflib.get_close_matches(word, self.fullGames, cutoff=0.9)) > 0:
                             newQuestion[i:i+2] = difflib.get_close_matches(word, self.fullGames, cutoff=0.9)
                             if homeTeam == '':
@@ -261,46 +319,62 @@ class Search:
                                 awayTeam = difflib.get_close_matches(word, self.fullGames, cutoff=0.9)[0]
 
         if newQuestion != question:
+            #This is if there is a suggestion made to the question
             if tkMessageBox.askyesno('Suggestion', 'Did you mean ' + " ".join(newQuestion)):
                 for i in self.fullGames[homeTeam]['Win']:
                     if awayTeam != '':
+                        #this is if there is an awayteam
                         if i[2] == awayTeam:
                             if newQuestion[0].lower() == 'where' or 'stadium' in newQuestion:
+                                #This is if the question is about the stadium
                                 Answer.append(i[3])
                             elif newQuestion[0].lower() == 'when' or 'date' in newQuestion:
+                                #This is if the question is about the date
                                 Answer.append(i[4])
                             elif ' '.join(question[0:2]).lower() == 'who scored' or 'goals' in question:
+                                #this is if the question is about the goals scored
                                 Answer.append(i[5:7])
+                            elif 'score' in question:
+                                #this is if the question is about the score
+                                Answer.append(i[1])
                             else:
                                 Answer.append(i)
                     elif newQuestion[0].lower() == 'who' and awayTeam == '':
                         for i in self.fullGames[homeTeam]['Loss']:
+                            #This is for the example 'Who beat Team A' with a suggestion
                             Answer.append(i[2])
                         return Answer
                     else:
+                        #this is if there isn't an away team
                         if newQuestion[0].lower() == 'where' or 'stadium' in newQuestion:
                             Answer.append(i[3])
                         elif newQuestion[0].lower() == 'when' or 'date' in newQuestion:
                             Answer.append(i[4])
                         elif ' '.join(question[0:2]).lower() == 'who scored' or 'goals' in question:
                             Answer.append(i[5:7])
+                        elif 'score' in question:
+                            Answer.append(i[1])
                         else:
                             Answer.append(i)
                 return Answer
             else:
                 return Answer
         elif homeTeam == '':
+            #This is if there wasn't any team found then there isn't an answer
             Answer = ['None']
             return Answer
 
         elif question[0].lower() == 'who' and awayTeam == '':
             for i in self.fullGames[homeTeam]['Loss']:
                 Answer.append(i[2])
+                # This is for the example 'Who beat Team A' without a suggestion
             return Answer
 
         else:
             for i in self.fullGames[homeTeam]['Win']:
                 if awayTeam != '':
+                    #This is if there is an away team
+                    #This is the same logic except there isn't any suggestions made
                     if i[2] == awayTeam:
                         if question[0].lower() == 'where' or 'stadium' in question:
                             Answer.append(i[3])
@@ -313,6 +387,7 @@ class Search:
                         else:
                             Answer.append(i)
                 else:
+                    #this is if there isn't an away team
                     if question[0].lower() == 'where' or 'stadium' in question:
                         Answer.append(i[3])
                     elif question[0].lower() == 'when' or 'date' in question:
@@ -326,6 +401,7 @@ class Search:
             return Answer
 
     def gamesLost(self, question):
+        #this is the lost function, the exact same logic is used as the one in the gamesWon function, except this is for losts.
         newQuestion = []
         for i in question:
             newQuestion.append(i)
@@ -371,6 +447,8 @@ class Search:
                                 Answer.append(i[4])
                             elif ' '.join(question[0:2]).lower() == 'who scored' or 'goals' in question:
                                 Answer.append(i[5:7])
+                            elif 'score' in question:
+                                Answer.append(i[1])
                             else:
                                 Answer.append(i)
                     elif newQuestion[0].lower() == 'who' and awayTeam == '':
@@ -384,6 +462,8 @@ class Search:
                             Answer.append(i[4])
                         elif ' '.join(question[0:2]).lower() == 'who scored' or 'goals' in question:
                             Answer.append(i[5:7])
+                        elif 'score' in question:
+                            Answer.append(i[1])
                         else:
                             Answer.append(i)
                 return Answer
@@ -425,6 +505,7 @@ class Search:
                         Answer.append(i)
             return Answer
     def gamesDrew(self, question):
+        # this is the lost function, the exact same logic is used as the one in the gamesWon function, except this is for ties.
         newQuestion = []
         for i in question:
             newQuestion.append(i)
@@ -470,6 +551,8 @@ class Search:
                                 Answer.append(i[4])
                             elif ' '.join(question[0:2]).lower() == 'who scored' or 'goals' in question:
                                 Answer.append(i[5:7])
+                            elif 'score' in question:
+                                Answer.append(i[1])
                             else:
                                 Answer.append(i)
                     elif newQuestion[0].lower() == 'who' and awayTeam == '':
@@ -483,6 +566,8 @@ class Search:
                             Answer.append(i[4])
                         elif ' '.join(question[0:2]).lower() == 'who scored' or 'goals' in question:
                             Answer.append(i[5:7])
+                        elif 'score' in question:
+                            Answer.append(i[1])
                         else:
                             Answer.append(i)
                 return Answer
@@ -524,6 +609,8 @@ class Search:
                         Answer.append(i)
             return Answer
     def gamesPlayed(self, question):
+        #this is the lost function, the exact same logic is used as the one in the gamesWon function, except this is for unkown score
+        #In this case it goes through the wins, losts, and ties and adds the match/matches it finds.
         newQuestion = []
         for i in question:
             newQuestion.append(i)
@@ -746,8 +833,10 @@ class Answer:
         self.background.pack()
         self.answerBox = Listbox(self.window, height=30, width=160)
         self.answerBox.place(x=15, y=50)
+        #User interface
         for i in self.answer:
             self.answerBox.insert(END, i)
+            #this adds the answerds from the list
 
 Main = MainMenu()
 mainloop()
